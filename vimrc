@@ -52,6 +52,20 @@ Bundle 'marijnh/tern_for_vim'
 Bundle 'mbriggs/mark.vim'
 Bundle 'gorodinskiy/vim-coloresque'
 Bundle 'Xuyuanp/nerdtree-git-plugin'
+Bundle 'rizzatti/dash.vim'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-endwise'
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'danro/rename.vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'pbrisbin/vim-mkdir'
+Bundle 'tmhedberg/matchit'
+Bundle 'vim-scripts/tComment'
+Bundle 'mattn/emmet-vim'
+Bundle 'suan/vim-instant-markdown'
+Bundle 'CodeFalling/fcitx-vim-osx'
+Bundle 'tpope/vim-fugitive'
+Bundle 'flazz/vim-colorschemes'
 
 "..................................
 " non github repos
@@ -70,24 +84,35 @@ nmap le $
 "" 定义快捷键关闭当前分割窗口
 nmap q :q<CR>
 nmap qa :qa<CR>
+" 下一个标签页
+nmap tn :tabnext<CR>
+" 前一个标签页
+nmap tp :tabp<CR>
+" 关闭当前标签页
+nmap tc :tabclose<CR>
+" 新建标签页
+nmap tnew :tabnew<CR>
+" 向前移动文件缓冲
+nmap bn :bn<CR>
+" 向后移动文件缓冲
+nmap bp :bp<CR>
 " 定义快捷键保存当前窗口内容
 nmap wr :w<CR>
 "" 定义快捷键保存所有窗口内容并退出 vim
 nmap WQ :wa<CR>:q<CR>
 "" 不做任何保存，直接退出 vim
 nmap Q :qa!<CR>
-" 依次遍历子窗口
-nmap nw <C-W><C-W>
 " 跳转至右方的窗口
-nmap lw <C-W>l
+nmap <C-L> <C-W>l
 " 跳转至左方的窗口
-nmap hw <C-W>h
+nmap <C-H>  <C-W>h
 " 跳转至上方的子窗口
-nmap kw <C-W>k
+nmap <C-K> <C-W>k
 " 跳转至下方的子窗口
-nmap jw <C-W>j
+nmap <C-G>  <C-W>j
 " 定义快捷键在结对符之间跳转，助记pair
 "nmap pa %
+"call pathogen#infect()
 " 开启文件类型侦测
 filetype on
 " 开启语法高亮功能
@@ -98,7 +123,8 @@ set background=dark
 "set background=light
 "colorscheme solarized
 "let g:solarized_termcolors=256
-colorscheme molokai
+"colorscheme molokai
+colorscheme cobalt
 "colorscheme phd
 
 set number
@@ -130,6 +156,8 @@ set guifont=YaHei\ Consolas\ Hybrid\ 12
 set nowrap
 " 设置状态栏主题风格
 let g:Powerline_colorscheme='solarized256'
+set laststatus=2
+set statusline+=%{fugitive#statusline()}
 " 自适应不同语言的智能缩进
 filetype indent on
 " 将制表符扩展为空格
@@ -235,10 +263,12 @@ let g:tagbar_type_cpp = {
 nmap sp :CtrlSF<CR>
 " NERDTree配置
 "autocmd StdinReadPre * let s:std_in=1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
 "下面的代码放到自己的vimrc配置中即可"
  
 let g:winManagerWindowLayout='NERDTree|Tagbar'
+nmap wm :WMToggle<CR>
 let g:winManagerWidth=30
 let g:AutoOpenWinManager = 1 "这里要配合修改winmanager.vim文件，见下方说明"
   
@@ -259,11 +289,39 @@ endfunction
 function! Tagbar_IsValid()
     return 1
 endfunction
-let g:tagbar_vertical = 30
-"
+let g:tagbar_vertical = 3
+
 " 配置undotree
 if has("persistent_undo")
     set undodir=~/.undodir/
     set undofile
 endif
 nnoremap <F5> :UndotreeToggle<cr>
+" miniBuf配置
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+" ctrap
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.png,*.jpg,*.jpeg,*.gif "MacOSX/Linux
+"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+"let g:ctrlp_custom_ignore = {
+"    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+"    \ 'file': '\v\.(exe|so|dll)$',
+"    \ 'link': 'some_bad_symbolic_links'
+"    \ }
+if executable('ag')
+    " Use Ag over Grep
+    set grepprg=ag\ --nogroup\ --nocolor
+    "     " Use ag in CtrlP for listing files.
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    " Ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
+endif
