@@ -1,12 +1,17 @@
-set nocompatible                " be iMproved
-filetype off                    " required!
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-Bundle 'flazz/vim-colorschemes'
-Bundle 'Lokaltog/vim-powerline'
-
-filetype plugin indent on
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'L9'
+Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'flazz/vim-colorschemes'
+Plugin 'Lokaltog/vim-powerline'
+call vundle#end()            " required
+filetype plugin indent on    " required
 filetype plugin on
 " 开启语法高亮功能
 syntax enable
