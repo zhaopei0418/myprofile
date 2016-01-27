@@ -23,6 +23,7 @@ Bundle 'pbrisbin/vim-mkdir'
 Bundle 'tpope/vim-surround'
 Bundle 'tmhedberg/matchit'
 Bundle 'vim-scripts/tComment'
+"Bundle 'tomtom/tcomment_vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'godlygeek/tabular'
 Bundle 'easymotion/vim-easymotion'
@@ -148,3 +149,8 @@ inoremap ∆ <Esc>:m .+1<CR>==gi
 inoremap ˚ <Esc>:m .-2<CR>==gi
 vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
+" 设置wildmode 跟bash shell一样
+set wildmode=longest,list
+" 设置命名行补全方式跟zsh一样
+"set wildmenu
+"set wildmode=full
