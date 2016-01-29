@@ -30,6 +30,7 @@ Bundle 'easymotion/vim-easymotion'
 Bundle 'scrooloose/syntastic'
 Bundle 'christoomey/vim-run-interactive'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-unimpaired'
 
 filetype plugin indent on    " required
 filetype plugin on
@@ -159,8 +160,3 @@ set history=200
 " 结合C-n,C-p与Up, Down键的优点
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
-" 映射遍历缓冲区的快捷键
-nnoremap [b :bprevious<CR>
-nnoremap ]b :bnext<CR>
-nnoremap [B :bfirst<CR>
-nnoremap ]B :blast<CR>
