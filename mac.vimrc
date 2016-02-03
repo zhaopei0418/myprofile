@@ -160,3 +160,6 @@ set history=200
 " 结合C-n,C-p与Up, Down键的优点
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+
+" 扩展%:h
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
