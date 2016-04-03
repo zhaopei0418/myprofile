@@ -1,15 +1,17 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
 Bundle 'flazz/vim-colorschemes'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'tpope/vim-rails'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'Shougo/neocomplete.vim'
 Bundle 'minibufexpl.vim'
 Bundle 'msanders/snipmate.vim'
 "Bundle 'dyng/ctrlsf.vim'
@@ -31,9 +33,28 @@ Bundle 'scrooloose/syntastic'
 Bundle 'christoomey/vim-run-interactive'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'tomasr/molokai'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
+Bundle 'Yggdroot/indentLine'
+Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'ternjs/tern_for_vim'
+Bundle 'vim-scripts/JavaScript-Indent'
+Bundle 'rking/ag.vim'
+Bundle 'Shougo/vimshell.vim'
+Bundle 'Shougo/vimproc.vim', {
+  \ 'build': {
+    \ 'mac': 'make',
+    \ 'linux': 'make',
+    \ 'unix': 'gmake'
+    \ }
+  \ }
 
+call vundle#end()            " required
 filetype plugin indent on    " required
 filetype plugin on
+
 " syntastic 设置
 let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
@@ -78,10 +99,6 @@ set hlsearch
 set guifont=YaHei\ Consolas\ Hybrid\ 12
 " 禁止折行
 set nowrap
-" 设置状态栏主题风格
-let g:Powerline_colorscheme='solarized256'
-"let g:Powerline_symbols='fancy'
-"set statusline+=%{fugitive#statusline()}
 
 " 自适应不同语言的智能缩进
 filetype indent on
@@ -163,3 +180,16 @@ cnoremap <C-n> <Down>
 
 " 扩展%:h
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+" 设置neocomplete
+let g:neocomplete#enable_at_startup = 1
+
+" airline设置
+let g:airline_section_b = '%{strftime("%c")}'
+let g:airline_section_y = 'BN: %{bufnr("%")}'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+" ag.vim
+let g:ackprg = 'ag --nogroup --nocolor --column --vimgrep'
+let g:ag_working_path_mode="r"
