@@ -13,7 +13,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Shougo/neocomplete.vim'
 Bundle 'minibufexpl.vim'
-Bundle 'msanders/snipmate.vim'
+"Bundle 'msanders/snipmate.vim'
 "Bundle 'dyng/ctrlsf.vim'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tpope/vim-bundler'
@@ -50,6 +50,10 @@ Bundle 'Shougo/vimproc.vim', {
     \ 'unix': 'gmake'
     \ }
   \ }
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
+Bundle 'Konfekt/FastFold'
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -96,7 +100,7 @@ set cursorcolumn
 set hlsearch
 
 " 设置 gvim 显示字体
-set guifont=YaHei\ Consolas\ Hybrid\ 12
+set guifont=YaHei\ Consolas\ Hybrid\ 16
 " 禁止折行
 set nowrap
 
@@ -193,3 +197,16 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " ag.vim
 let g:ackprg = 'ag --nogroup --nocolor --column --vimgrep'
 let g:ag_working_path_mode="r"
+
+" ultisnips configure
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+
+" YCM configure
+let g:ycm_key_list_select_completion=['<c-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+
+set guioptions-=T           " 隐藏菜单栏
+set guioptions-=m           " 隐藏工具栏
