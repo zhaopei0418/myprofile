@@ -53,6 +53,7 @@ Bundle 'Shougo/vimproc.vim', {
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'Konfekt/FastFold'
+Bundle 'artur-shaik/vim-javacomplete2'
 
 
 call vundle#end()            " required
@@ -210,3 +211,14 @@ let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
 
 set guioptions-=T           " 隐藏菜单栏
 set guioptions-=m           " 隐藏工具栏
+
+" vim-javacomplete2 配置
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+nmap <F5> <Plug>(JavaComplete-Imports-Add)
+imap <F5> <Plug>(JavaComplete-Imports-Add)
+nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+nmap <F3> <Plug>(JavaComplete-Imports-RemoveUnused)
+imap <F3> <Plug>(JavaComplete-Imports-RemoveUnused)
