@@ -54,6 +54,7 @@ Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'Konfekt/FastFold'
 Bundle 'artur-shaik/vim-javacomplete2'
+"Bundle 'kana/vim-textobj-lastpat'
 
 
 call vundle#end()            " required
@@ -119,7 +120,7 @@ set softtabstop=4
 set list
 set list lcs=trail:·,tab:»·
 " java 文件设置tab键等于4个空格
-autocmd FileType css,html,jsp,js set tabstop=4 | set shiftwidth=4 | set softtabstop=4
+autocmd FileType ruby,yaml set tabstop=2 | set shiftwidth=2 | set softtabstop=2 | set expandtab
 " 随 vim 自启动
 let g:indent_guides_enable_on_vim_startup=1
 " 从第二层开始可视化显示缩进
