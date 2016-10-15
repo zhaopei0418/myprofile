@@ -54,6 +54,15 @@ Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'Konfekt/FastFold'
 Bundle 'artur-shaik/vim-javacomplete2'
+Bundle 'L9'
+Bundle 'vim-scripts/FuzzyFinder'
+Bundle 'vim-scripts/AutoComplPop'
+Bundle 'kana/vim-fakeclip'
+Bundle 'jlanzarotta/bufexplorer'
+Bundle 'c9s/gsession.vim'
+Bundle 'pangloss/vim-javascript'
+Bundle 'othree/html5.vim'
+Bundle 'hail2u/vim-css3-syntax'
 
 
 call vundle#end()            " required
@@ -120,6 +129,9 @@ set list
 set list lcs=trail:·,tab:»·
 " java 文件设置tab键等于4个空格
 autocmd FileType css,html,jsp,js set tabstop=4 | set shiftwidth=4 | set softtabstop=4
+autocmd FileType ruby,yaml set tabstop=2 | set shiftwidth=2 | set expandtab
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 " 随 vim 自启动
 let g:indent_guides_enable_on_vim_startup=1
 " 从第二层开始可视化显示缩进
@@ -224,3 +236,25 @@ nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
 imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
 nmap <F3> <Plug>(JavaComplete-Imports-RemoveUnused)
 imap <F3> <Plug>(JavaComplete-Imports-RemoveUnused)
+
+" FuzzyFinder 配置
+map <c-t> :FufCoverageFile!<CR>
+
+" vim-javascript 配置
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+set foldmethod=syntax
+
+" html5.vim 配置
+let g:html5_event_handler_attributes_complete = 0
+let g:html5_rdfa_attributes_complete = 0
+let g:html5_microdata_attributes_complete = 0
+let g:html5_aria_attributes_complete = 0
+
+" vim-css3-syntax 配置
+augroup VimCSS3Syntax
+autocmd!
+
+autocmd FileType css setlocal iskeyword+=-
+augroup END
