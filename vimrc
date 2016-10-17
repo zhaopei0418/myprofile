@@ -63,11 +63,14 @@ Bundle 'c9s/gsession.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'othree/html5.vim'
 Bundle 'hail2u/vim-css3-syntax'
+Bundle 'maralla/validator.vim'
 
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 filetype plugin on
+
+set ofu=syntaxcomplete#Complete
 
 " syntastic 设置
 let g:syntastic_check_on_open=1
@@ -258,3 +261,13 @@ autocmd!
 
 autocmd FileType css setlocal iskeyword+=-
 augroup END
+
+" validator.vim 配置
+let g:validator_javascript_checkers = ['eslint']
+let g:validator_css_checkers = ['csslint']
+let g:validator_json_checkers = ['jsonlint']
+let g:validator_vim_checkers = ['vimlparser']
+let g:validator_sh_checkers = ['shellcheck']
+let g:validator_python_checkers = ['flake8']
+let g:validator_c_checkers = ['clang-tidy']
+let g:validator_auto_open_quickfix = 1
