@@ -65,6 +65,7 @@ Bundle 'othree/html5.vim'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'maralla/validator.vim'
 Bundle 'NBUT-Developers/extra-instant-markdown'
+Bundle 'isomoar/vim-css-to-inline'
 
 
 call vundle#end()            " required
