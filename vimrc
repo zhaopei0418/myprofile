@@ -56,7 +56,7 @@ Bundle 'Konfekt/FastFold'
 Bundle 'artur-shaik/vim-javacomplete2'
 Bundle 'L9'
 Bundle 'vim-scripts/FuzzyFinder'
-Bundle 'vim-scripts/AutoComplPop'
+"Bundle 'vim-scripts/AutoComplPop'
 Bundle 'kana/vim-fakeclip'
 Bundle 'jlanzarotta/bufexplorer'
 Bundle 'c9s/gsession.vim'
@@ -66,6 +66,7 @@ Bundle 'hail2u/vim-css3-syntax'
 Bundle 'maralla/validator.vim'
 Bundle 'NBUT-Developers/extra-instant-markdown'
 Bundle 'isomoar/vim-css-to-inline'
+Bundle 'metakirby5/codi.vim'
 
 
 call vundle#end()            " required
