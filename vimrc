@@ -67,6 +67,8 @@ Bundle 'maralla/validator.vim'
 Bundle 'NBUT-Developers/extra-instant-markdown'
 Bundle 'isomoar/vim-css-to-inline'
 Bundle 'metakirby5/codi.vim'
+Bundle 'ervandew/supertab'
+Bundle 'mbbill/undotree'
 
 
 call vundle#end()            " required
@@ -135,7 +137,7 @@ set list
 set list lcs=trail:·,tab:»·
 " java 文件设置tab键等于4个空格
 autocmd FileType css,html,jsp,js set tabstop=4 | set shiftwidth=4 | set softtabstop=4
-autocmd FileType ruby,yaml set tabstop=2 | set shiftwidth=2 | set expandtab
+autocmd FileType ruby,yaml set tabstop=2 | set shiftwidth=2 | set softtabstop=2 | set expandtab
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 " 随 vim 自启动
