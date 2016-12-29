@@ -69,6 +69,7 @@ Bundle 'isomoar/vim-css-to-inline'
 Bundle 'metakirby5/codi.vim'
 Bundle 'ervandew/supertab'
 Bundle 'mbbill/undotree'
+Bundle 'yuttie/comfortable-motion.vim'
 
 
 call vundle#end()            " required
