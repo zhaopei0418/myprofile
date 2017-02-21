@@ -29,7 +29,7 @@ Bundle 'vim-scripts/tComment'
 Bundle 'mattn/emmet-vim'
 Bundle 'godlygeek/tabular'
 Bundle 'easymotion/vim-easymotion'
-Bundle 'scrooloose/syntastic'
+Bundle 'vim-syntastic/syntastic'
 Bundle 'christoomey/vim-run-interactive'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-unimpaired'
@@ -70,6 +70,7 @@ Bundle 'metakirby5/codi.vim'
 Bundle 'ervandew/supertab'
 Bundle 'mbbill/undotree'
 Bundle 'yuttie/comfortable-motion.vim'
+Bundle 'w0rp/ale'
 
 
 call vundle#end()            " required
