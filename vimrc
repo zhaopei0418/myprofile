@@ -71,6 +71,7 @@ Bundle 'ervandew/supertab'
 Bundle 'mbbill/undotree'
 Bundle 'yuttie/comfortable-motion.vim'
 Bundle 'w0rp/ale'
+Bundle 'tpope/vim-fugitive'
 
 
 call vundle#end()            " required
