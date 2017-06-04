@@ -56,7 +56,7 @@ Bundle 'Konfekt/FastFold'
 Bundle 'artur-shaik/vim-javacomplete2'
 Bundle 'L9'
 Bundle 'vim-scripts/FuzzyFinder'
-"Bundle 'vim-scripts/AutoComplPop'
+" Bundle 'vim-scripts/AutoComplPop'
 Bundle 'kana/vim-fakeclip'
 Bundle 'jlanzarotta/bufexplorer'
 Bundle 'c9s/gsession.vim'
@@ -72,9 +72,20 @@ Bundle 'mbbill/undotree'
 Bundle 'yuttie/comfortable-motion.vim'
 Bundle 'w0rp/ale'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-pathogen'
+Bundle 'klen/python-mode'
+" Bundle 'vimcn/vimcdoc'
+Bundle 'jiangmiao/auto-pairs'
+Bundle 'vim-scripts/OmniCppComplete'
+Bundle 'vim-scripts/c.vim'
+Bundle 'vim-scripts/gdbmgr'
+Bundle 'brookhong/cscope.vim'
+Bundle 'fatih/vim-go'
 
 
 call vundle#end()            " required
+" call pathogen#infect()
+" call pathogen#helptags()
 filetype plugin indent on    " required
 filetype plugin on
 
@@ -123,7 +134,7 @@ set hlsearch
 " 设置 gvim 显示字体
 set guifont=YaHei\ Consolas\ Hybrid\ 16
 " 禁止折行
-set nowrap
+" set nowrap
 
 " 自适应不同语言的智能缩进
 filetype indent on
